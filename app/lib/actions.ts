@@ -35,8 +35,6 @@ export const createInvoice = async (prevState: State, formData: FormData) => {
     status: formData.get("status"),
   });
 
-  console.log(validatedFields)
-
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
