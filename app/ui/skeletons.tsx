@@ -55,13 +55,13 @@ export function InvoiceSkeleton({ isLast }: { isLast?: boolean }) {
       }`}
     >
       <div className="flex items-center">
-        <Skeleton className="mr-2 h-8 w-8 rounded-full" />
+        <Skeleton className="mr-2 h-8 w-8 rounded-full bg-primary/10" />
         <div className="min-w-0">
-          <Skeleton className="h-5 w-40 rounded-md" />
-          <Skeleton className="mt-2 h-4 w-12 rounded-md" />
+          <Skeleton className="h-5 w-40 rounded-md bg-primary/10" />
+          <Skeleton className="mt-2 h-4 w-12 rounded-md bg-primary/10" />
         </div>
       </div>
-      <Skeleton className="mt-2 h-4 w-12 rounded-md" />
+      <Skeleton className="mt-2 h-4 w-12 rounded-md bg-primary/10" />
     </div>
   );
 }
