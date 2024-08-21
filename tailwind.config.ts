@@ -17,6 +17,11 @@ const config: Config = {
           500: '#0070F3',
           600: '#2F6FEB',
         },
+        // primary: {
+        //   black: '#0a0a0b',
+        //   white: '#fafafa',
+        //   sub_text: '#a1a1aa',
+        // }
       },
     },
     keyframes: {
