@@ -47,17 +47,21 @@ export function RevenueChartSkeleton() {
   );
 }
 
-export function InvoiceSkeleton() {
+export function InvoiceSkeleton({ isLast }: { isLast?: boolean }) {
   return (
-    <div className="flex flex-row items-center justify-between border-b border-gray-100 py-4">
+    <div
+      className={`flex flex-row items-center justify-between py-4 ${
+        !isLast && "border-b"
+      }`}
+    >
       <div className="flex items-center">
-        <div className="mr-2 h-8 w-8 rounded-full bg-gray-200" />
+        <Skeleton className="mr-2 h-8 w-8 rounded-full" />
         <div className="min-w-0">
-          <div className="h-5 w-40 rounded-md bg-gray-200" />
-          <div className="mt-2 h-4 w-12 rounded-md bg-gray-200" />
+          <Skeleton className="h-5 w-40 rounded-md" />
+          <Skeleton className="mt-2 h-4 w-12 rounded-md" />
         </div>
       </div>
-      <div className="mt-2 h-4 w-12 rounded-md bg-gray-200" />
+      <Skeleton className="mt-2 h-4 w-12 rounded-md" />
     </div>
   );
 }
@@ -67,18 +71,18 @@ export function LatestInvoicesSkeleton() {
     <div
       className={`${shimmer} relative flex w-full flex-col overflow-hidden md:col-span-4`}
     >
-      <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
-      <div className="flex grow flex-col justify-between rounded-xl bg-gray-100 p-4">
-        <div className="bg-white px-6">
+      <Skeleton className="mb-4 h-8 w-36 rounded-md" />
+      <div className="flex grow flex-col justify-between rounded-xl border-2 p-4">
+        <div className="bg-primary-foreground rounded-lg px-6">
           <InvoiceSkeleton />
           <InvoiceSkeleton />
           <InvoiceSkeleton />
           <InvoiceSkeleton />
-          <InvoiceSkeleton />
+          <InvoiceSkeleton isLast />
         </div>
         <div className="flex items-center pb-2 pt-6">
-          <div className="h-5 w-5 rounded-full bg-gray-200" />
-          <div className="ml-2 h-4 w-20 rounded-md bg-gray-200" />
+          <Skeleton className="h-5 w-5 rounded-full" />
+          <Skeleton className="ml-2 h-4 w-20 rounded-md" />
         </div>
       </div>
     </div>
