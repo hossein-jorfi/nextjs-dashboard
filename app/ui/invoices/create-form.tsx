@@ -19,10 +19,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { ChevronRightIcon, Loader2 } from "lucide-react";
 
 const initialState: State = { message: null, errors: {} };
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const [state, formAction] = useActionState(createInvoice, initialState);
+  const [state, formAction, isPending] = useActionState(
+    createInvoice,
+    initialState
+  );
 
   return (
     <form action={formAction}>
@@ -80,11 +84,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             Set the invoice status
           </legend>
           <div className="rounded-md px-[14px] border py-3">
-            <RadioGroup
-              defaultValue=""
-              className="flex gap-5"
-              name="status"
-            >
+            <RadioGroup defaultValue="" className="flex gap-5" name="status">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem id="pending" value="pending" />
                 <Label htmlFor="pending">Pending</Label>
@@ -105,10 +105,17 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link href="/dashboard/invoices">
-          <Button variant='secondary'>Cancel</Button>
+          <Button variant="secondary">Cancel</Button>
         </Link>
-        <Button type="submit" variant="default">
-          Create Invoice
+        <Button type="submit" variant="default" disabled={isPending}>
+          {isPending ? (
+            <div className="relative">
+              <span className="opacity-0">Edit Invoice</span>
+              <Loader2 className="h-6 w-6 animate-spin absolute left-0 right-0 ml-auto mr-auto top-0" />
+            </div>
+          ) : (
+            "Create Invoice"
+          )}
         </Button>
       </div>
     </form>

@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { ChevronRightIcon, Loader2 } from "lucide-react";
 
 export default function EditInvoiceForm({
   invoice,
@@ -28,7 +29,10 @@ export default function EditInvoiceForm({
 }) {
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   const initialState: State = { message: null, errors: {} };
-  const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
+  const [state, formAction, isPending] = useActionState(
+    updateInvoiceWithId,
+    initialState
+  );
 
   return (
     <form action={formAction}>
@@ -122,8 +126,15 @@ export default function EditInvoiceForm({
         <Link href="/dashboard/invoices">
           <Button variant="secondary">Cancel</Button>
         </Link>
-        <Button type="submit" variant="default">
-          Edit Invoice
+        <Button type="submit" variant="default" disabled={isPending}>
+          {isPending ? (
+            <div className="relative">
+              <span className="opacity-0">Edit Invoice</span>
+              <Loader2 className="h-6 w-6 animate-spin absolute left-0 right-0 ml-auto mr-auto top-0" />
+            </div>
+          ) : (
+            "Edit Invoice"
+          )}
         </Button>
       </div>
     </form>
