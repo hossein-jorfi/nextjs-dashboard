@@ -33,10 +33,10 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             Choose customer
           </label>
 
-          <Select>
+          <Select name="customerId" defaultValue="">
             <SelectTrigger className="w-full pl-10 relative text-muted-foreground checked:text-red-500">
               <UserCircleIcon className="w-[18px] h-[18px] absolute left-3" />
-              <SelectValue id="customer" placeholder="Customer" />
+              <SelectValue placeholder="Customer" />
             </SelectTrigger>
             <SelectContent className="">
               {customers.map((customer) => (
