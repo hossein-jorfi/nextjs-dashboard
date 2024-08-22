@@ -5,10 +5,10 @@ import { CreateInvoice } from "@/app/ui/invoices/buttons";
 import { InvoicesTableSkeleton } from "@/app/ui/skeletons";
 import { Suspense } from "react";
 import { fetchInvoicesPages } from "@/app/lib/data";
-import { Metadata } from 'next';
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Invoices',
+  title: "Invoices",
 };
 
 export default async function Page({
@@ -32,6 +32,7 @@ export default async function Page({
         <Search placeholder="Search invoices..." />
         <CreateInvoice />
       </div>
+      {/* <InvoicesTableSkeleton /> */}
       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
       </Suspense>
