@@ -2,7 +2,6 @@ import { CreateInvoice } from "@/app/ui/invoices/buttons";
 import InvoicesPagination from "@/app/ui/invoices/invoice-pagination";
 import Search from "@/app/ui/search";
 import { InvoicesTableSkeleton } from "@/app/ui/skeletons";
-import { Pagination } from "@/components/ui/pagination";
 
 const Laoding = () => {
   return (
