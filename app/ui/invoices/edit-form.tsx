@@ -101,17 +101,11 @@ export default function EditInvoiceForm({
               name="status"
             >
               <div className="flex items-center space-x-2">
-                <RadioGroupItem
-                  id="pending"
-                  value="pending"
-                />
+                <RadioGroupItem id="pending" value="pending" />
                 <Label htmlFor="pending">Pending</Label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem
-                  id="paid"
-                  value="paid"
-                />
+                <RadioGroupItem id="paid" value="paid" />
                 <Label htmlFor="paid">Paid</Label>
               </div>
             </RadioGroup>
@@ -125,13 +119,12 @@ export default function EditInvoiceForm({
         </fieldset>
       </div>
       <div className="mt-6 flex justify-end gap-4">
-        <Link
-          href="/dashboard/invoices"
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
-        >
-          Cancel
+        <Link href="/dashboard/invoices">
+          <Button variant="secondary">Cancel</Button>
         </Link>
-        <Button type="submit">Edit Invoice</Button>
+        <Button type="submit" variant="default">
+          Edit Invoice
+        </Button>
       </div>
     </form>
   );
