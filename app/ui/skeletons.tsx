@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 // Loading animation
@@ -219,6 +220,35 @@ export function InvoicesTableSkeleton() {
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function InvoiceFormSkeleton() {
+  return (
+    <div>
+      <div className="rounded-lg border p-4 md:p-6">
+        {/* Customer Name */}
+        <div className="mb-4">
+          <Skeleton className="w-[100px] h-[15px] mb-2"></Skeleton>
+          <Skeleton className="w-full h-[30px]" />
+        </div>
+
+        <div className="mb-4">
+          <Skeleton className="w-[100px] h-[15px] mb-2"></Skeleton>
+          <Skeleton className="w-full h-[30px]" />
+        </div>
+
+        {/* Invoice Status */}
+        <div>
+          <Skeleton className="w-[100px] h-[15px] mb-2"></Skeleton>
+          <Skeleton className="w-full h-[30px]" />
+        </div>
+      </div>
+      <div className="mt-6 flex justify-end gap-4">
+        <Skeleton className="w-[80px] h-[30px]" />
+        <Skeleton className="w-[130px] h-[30px]" />
       </div>
     </div>
   );
