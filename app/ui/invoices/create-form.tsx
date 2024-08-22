@@ -3,8 +3,6 @@
 import { CustomerField } from "@/app/lib/definitions";
 import Link from "next/link";
 import {
-  CheckIcon,
-  ClockIcon,
   CurrencyDollarIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
@@ -83,7 +81,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           </legend>
           <div className="rounded-md px-[14px] border py-3">
             <RadioGroup
-              defaultValue="comfortable"
+              defaultValue=""
               className="flex gap-5"
               name="status"
             >
