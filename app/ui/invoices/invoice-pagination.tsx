@@ -1,6 +1,10 @@
 "use client";
 import { generatePagination } from "@/app/lib/utils";
-import { usePathname, useSearchParams } from "next/navigation";
+import {
+  ReadonlyURLSearchParams,
+  usePathname,
+  useSearchParams,
+} from "next/navigation";
 
 import {
   Pagination,
@@ -10,6 +14,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import Link from "next/link";
 
 export default function InvoicesPagination({
   totalPages,
@@ -21,19 +26,13 @@ export default function InvoicesPagination({
   const currentPage = Number(searchParams.get("page")) || 1;
   const allPages = generatePagination(currentPage, totalPages);
 
-  const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set("page", pageNumber.toString());
-    return `${pathname}?${params.toString()}`;
-  };
-
   return (
     <>
       <Pagination>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
-              href={createPageURL(currentPage - 1)}
+              href={createPageURL(currentPage - 1, searchParams, pathname)}
               className={currentPage <= 1 ? "opacity-50" : ""}
             />
           </PaginationItem>
@@ -43,7 +42,7 @@ export default function InvoicesPagination({
               <PaginationItem key={page}>
                 <PaginationLink
                   key={page}
-                  href={createPageURL(page)}
+                  href={createPageURL(page, searchParams, pathname)}
                   isActive={currentPage === page}
                 >
                   {page}
@@ -54,7 +53,7 @@ export default function InvoicesPagination({
 
           <PaginationItem>
             <PaginationNext
-              href={createPageURL(currentPage + 1)}
+              href={createPageURL(currentPage + 1, searchParams, pathname)}
               className={currentPage >= totalPages ? "opacity-50" : ""}
             />
           </PaginationItem>
@@ -63,3 +62,13 @@ export default function InvoicesPagination({
     </>
   );
 }
+
+const createPageURL = (
+  pageNumber: number | string,
+  searchParams: ReadonlyURLSearchParams,
+  pathname: string
+) => {
+  const params = new URLSearchParams(searchParams);
+  params.set("page", pageNumber.toString());
+  return `${pathname}?${params.toString()}`;
+};
