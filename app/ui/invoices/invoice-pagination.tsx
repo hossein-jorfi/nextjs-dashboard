@@ -14,7 +14,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function InvoicesPagination({
   totalPages,
@@ -23,8 +23,13 @@ export default function InvoicesPagination({
 }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const router = useRouter();
   const currentPage = Number(searchParams.get("page")) || 1;
   const allPages = generatePagination(currentPage, totalPages);
+
+  const triggerSuspence = (url: string) => {
+    router.push(url);
+  };
 
   return (
     <>
@@ -32,8 +37,14 @@ export default function InvoicesPagination({
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
-              href={createPageURL(currentPage - 1, searchParams, pathname)}
               className={currentPage <= 1 ? "opacity-50" : ""}
+              onClick={() => {
+                if (currentPage >= totalPages) {
+                  triggerSuspence(
+                    createPageURL(currentPage - 1, searchParams, pathname)
+                  );
+                }
+              }}
             />
           </PaginationItem>
 
@@ -42,7 +53,7 @@ export default function InvoicesPagination({
               <PaginationItem key={page}>
                 <PaginationLink
                   key={page}
-                  href={createPageURL(page, searchParams, pathname)}
+                  onClick={() => triggerSuspence(createPageURL(page, searchParams, pathname))}
                   isActive={currentPage === page}
                 >
                   {page}
@@ -53,8 +64,14 @@ export default function InvoicesPagination({
 
           <PaginationItem>
             <PaginationNext
-              href={createPageURL(currentPage + 1, searchParams, pathname)}
               className={currentPage >= totalPages ? "opacity-50" : ""}
+              onClick={() => {
+                if (currentPage <= 1) {
+                  triggerSuspence(
+                    createPageURL(currentPage + 1, searchParams, pathname)
+                  );
+                }
+              }}
             />
           </PaginationItem>
         </PaginationContent>
