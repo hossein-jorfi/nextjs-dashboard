@@ -34,7 +34,6 @@ export default async function Page({
         </Suspense>
         <CreateInvoice />
       </div>
-      <InvoicesTableSkeleton />
       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
       </Suspense>
