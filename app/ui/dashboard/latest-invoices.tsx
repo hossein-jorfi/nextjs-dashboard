@@ -10,13 +10,13 @@ export default async function LatestInvoices() {
     <div className="flex w-full flex-col md:col-span-4">
       <h2 className={`mb-4 text-xl md:text-2xl`}>Latest Invoices</h2>
       <div className="flex grow flex-col justify-between rounded-xl border-2 p-4">
-        <div className="px-6 flex flex-col justify-between h-full">
+        <div className="px-0 xl:px-6 flex flex-col justify-between h-full gap-2 lg:gap-0">
           {latestInvoices.map((invoice, i) => {
             return (
               <div
                 key={invoice.id}
                 className={clsx(
-                  "flex flex-row items-center justify-between py-3 px-4 bg-primary-foreground rounded-lg"
+                  "flex flex-row items-center justify-between py-2 lg:py-3 px-4 bg-primary-foreground rounded-lg"
                 )}
               >
                 <div className="flex items-center">
