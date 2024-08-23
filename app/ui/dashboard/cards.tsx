@@ -49,7 +49,7 @@ export function Card({
     <div className="rounded-xl p-2 shadow-sm border-2">
       <div className="flex p-4">
         {Icon ? <Icon className="h-5 w-5" /> : null}
-        <h3 className="ml-2 text-sm font-medium">{title}</h3>
+        <h3 className="ml-2 text-sm font-medium text-nowrap overflow-hidden">{title}</h3>
       </div>
       <p className={`bg-primary-foreground truncate rounded-xl px-4 py-8 text-center text-2xl`}>
         {value}
