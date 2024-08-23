@@ -110,7 +110,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         <Button type="submit" variant="default" disabled={isPending}>
           {isPending ? (
             <div className="relative">
-              <span className="opacity-0">Edit Invoice</span>
+              <span className="opacity-0">Create Invoice</span>
               <Loader2 className="h-6 w-6 animate-spin absolute left-0 right-0 ml-auto mr-auto top-0" />
             </div>
           ) : (
