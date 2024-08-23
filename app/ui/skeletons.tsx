@@ -152,19 +152,19 @@ export function InvoicesMobileSkeleton() {
     <div className="mb-2 w-full rounded-md border-2 p-4">
       <div className="flex items-center justify-between border-b pb-8">
         <div className="flex items-center">
-          <div className="mr-2 h-8 w-8 rounded-full"></div>
-          <div className="h-6 w-16 rounded"></div>
+          <Skeleton className="mr-2 h-8 w-8 rounded-full"></Skeleton>
+          <Skeleton className="h-6 w-16 rounded"></Skeleton>
         </div>
-        <div className="h-6 w-16 rounded "></div>
+        <Skeleton className="h-6 w-16 rounded "></Skeleton>
       </div>
       <div className="flex w-full items-center justify-between pt-4">
         <div>
-          <div className="h-6 w-16 rounded "></div>
-          <div className="mt-2 h-6 w-24 rounded "></div>
+          <Skeleton className="h-6 w-16 rounded "></Skeleton>
+          <Skeleton className="mt-2 h-6 w-24 rounded "></Skeleton>
         </div>
         <div className="flex justify-end gap-2">
-          <div className="h-10 w-10 rounded "></div>
-          <div className="h-10 w-10 rounded "></div>
+          <Skeleton className="h-10 w-10 rounded "></Skeleton>
+          <Skeleton className="h-10 w-10 rounded "></Skeleton>
         </div>
       </div>
     </div>
@@ -174,8 +174,8 @@ export function InvoicesMobileSkeleton() {
 export function InvoicesTableSkeleton() {
   return (
     <div className="mt-6 flow-root">
-      <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg border-2 p-2 md:pt-0">
+      <div className="inline-block w-full align-middle">
+        <div className="rounded-lg border-2 p-2 md:pt-0 overflow-y-auto no-scrollbar">
           <div className="md:hidden">
             <InvoicesMobileSkeleton />
             <InvoicesMobileSkeleton />
