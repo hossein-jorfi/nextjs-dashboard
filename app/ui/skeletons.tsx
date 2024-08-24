@@ -315,9 +315,9 @@ export function CustomersTableSkeleton() {
       </div>
       <Skeleton className="w-full h-6 mt-7" />
       <div className="mt-6 flow-root">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-md border-2 no-scrollbar">
           <div className="inline-block min-w-full align-middle">
-            <div className="overflow-hidden rounded-md border-2 p-2 md:pt-0">
+            <div className="overflow-hidden p-2 md:pt-0">
               <div className="md:hidden">
                 <CustomerMobileRowSkeleton />
                 <CustomerMobileRowSkeleton />

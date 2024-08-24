@@ -14,9 +14,9 @@ export default async function CustomersTable({
       <h1 className={`mb-8 text-xl md:text-2xl`}>Customers</h1>
       <Search placeholder="Search customers..." />
       <div className="mt-6 flow-root">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto no-scrollbar rounded-md border-2">
           <div className="inline-block min-w-full align-middle">
-            <div className="overflow-hidden rounded-md border-2 p-2 md:pt-0">
+            <div className="overflow-hidden p-2 md:pt-0">
               <div className="md:hidden">
                 {customers?.map((customer) => (
                   <div key={customer.id} className="mb-2 w-full rounded-md border-2 p-4">
