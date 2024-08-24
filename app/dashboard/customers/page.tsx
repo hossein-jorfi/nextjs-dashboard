@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 const Page = async () => {
   const customers = await fetchFilteredCustomers("");
 
-  return <CustomersTable customers={customers} />;
+  return (
+    <>
+      <CustomersTable customers={customers} />
+    </>
+  );
 };
 
 export default Page;

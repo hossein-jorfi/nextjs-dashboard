@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Search from "@/app/ui/search";
 import {
-  CustomersTableType,
   FormattedCustomersTable,
 } from "@/app/lib/definitions";
 
@@ -20,7 +19,7 @@ export default async function CustomersTable({
             <div className="overflow-hidden rounded-md border-2 p-2 md:pt-0">
               <div className="md:hidden">
                 {customers?.map((customer) => (
-                  <div key={customer.id} className="mb-2 w-full rounded-md p-4">
+                  <div key={customer.id} className="mb-2 w-full rounded-md border-2 p-4">
                     <div className="flex items-center justify-between border-b pb-4">
                       <div>
                         <div className="mb-2 flex items-center">
@@ -77,10 +76,7 @@ export default async function CustomersTable({
 
                 <tbody className="divide-y first:!rounded-lg">
                   {customers?.map((customer) => (
-                    <tr
-                      key={customer.id}
-                      className="group"
-                    >
+                    <tr key={customer.id} className="group">
                       <td className="whitespace-nowrappy-5 pl-4 pr-3 text-sm sm:pl-6 bg-primary-foreground">
                         <div className="flex items-center gap-3">
                           <Image

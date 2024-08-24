@@ -1,5 +1,7 @@
+import { CustomersTableSkeleton } from "@/app/ui/skeletons";
+
 const Loading = () => {
-  return <div>Loading...</div>;
+  return <CustomersTableSkeleton />;
 };
 
 export default Loading;

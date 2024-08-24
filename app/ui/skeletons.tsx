@@ -253,3 +253,112 @@ export function InvoiceFormSkeleton() {
     </div>
   );
 }
+
+export function CustomerMobileRowSkeleton() {
+  return (
+    <div className="mb-2 w-full rounded-md p-4 border-2">
+      <div className="flex items-center justify-between border-b pb-4">
+        <div>
+          <div className="mb-2 flex items-center">
+            <div className="flex items-center gap-3">
+              <Skeleton className="bg-primary/10 w-7 h-7 rounded-full" />
+              <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+            </div>
+          </div>
+          <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+        </div>
+      </div>
+      <div className="flex w-full items-center justify-between border-b py-5">
+        <div className="flex w-1/2 flex-col">
+          <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+        </div>
+        <div className="flex w-1/2 flex-col">
+          <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+        </div>
+      </div>
+      <div className="pt-4 text-sm">
+        <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+      </div>
+    </div>
+  );
+}
+export function CustomerRowSkeleton() {
+  return (
+    <tr className="group">
+      <td className="whitespace-nowrappy-5 pl-4 pr-3 text-sm sm:pl-6 bg-primary-foreground">
+        <div className="flex items-center gap-3">
+          <Skeleton className="bg-primary/10 w-7 h-7 rounded-full" />
+          <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+        </div>
+      </td>
+      <td className="whitespace-nowrap px-4 py-5 text-sm bg-primary-foreground">
+        <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+      </td>
+      <td className="whitespace-nowrap px-4 py-5 text-sm bg-primary-foreground">
+        <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+      </td>
+      <td className="whitespace-nowrap px-4 py-5 text-sm bg-primary-foreground">
+        <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+      </td>
+      <td className="whitespace-nowrap px-4 py-5 text-sm bg-primary-foreground">
+        <Skeleton className="bg-primary/10 w-24 h-4 rounded-md" />
+      </td>
+    </tr>
+  );
+}
+
+export function CustomersTableSkeleton() {
+  return (
+    <div className="w-full">
+      <div>
+        <Skeleton className={`w-24 h-5`}></Skeleton>
+      </div>
+      <Skeleton className="w-full h-6 mt-7" />
+      <div className="mt-6 flow-root">
+        <div className="overflow-x-auto">
+          <div className="inline-block min-w-full align-middle">
+            <div className="overflow-hidden rounded-md border-2 p-2 md:pt-0">
+              <div className="md:hidden">
+                <CustomerMobileRowSkeleton />
+                <CustomerMobileRowSkeleton />
+                <CustomerMobileRowSkeleton />
+                <CustomerMobileRowSkeleton />
+                <CustomerMobileRowSkeleton />
+                <CustomerMobileRowSkeleton />
+              </div>
+              <table className="hidden min-w-full rounded-md md:table">
+                <thead className="rounded-md text-left text-sm font-normal">
+                  <tr>
+                    <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                      <Skeleton className="w-20 h-4" />
+                    </th>
+                    <th scope="col" className="px-3 py-5 font-medium">
+                      <Skeleton className="w-20 h-4" />
+                    </th>
+                    <th scope="col" className="px-3 py-5 font-medium">
+                      <Skeleton className="w-20 h-4" />
+                    </th>
+                    <th scope="col" className="px-3 py-5 font-medium">
+                      <Skeleton className="w-20 h-4" />
+                    </th>
+                    <th scope="col" className="px-4 py-5 font-medium">
+                      <Skeleton className="w-20 h-4" />
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody className="divide-y first:!rounded-lg">
+                  <CustomerRowSkeleton />
+                  <CustomerRowSkeleton />
+                  <CustomerRowSkeleton />
+                  <CustomerRowSkeleton />
+                  <CustomerRowSkeleton />
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
